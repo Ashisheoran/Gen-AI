@@ -4,11 +4,11 @@ from langchain.chat_models import init_chat_model
 
 load_dotenv()
 
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 
 def txt_2_txt_model(prompt):
 
-    model = init_chat_model("google_genai:gemini-3-flash-preview")
+    model = init_chat_model("groq:openai/gpt-oss-120b")
 
     # response = model.invoke("What is Ai in brief?")
 
@@ -26,4 +26,6 @@ def txt_2_txt_model(prompt):
         print(chunk.text, end="")
 
 
-txt_2_txt_model("Explain Ai in two lines")
+user_input = input("\nEnter Your Query:")
+
+txt_2_txt_model(user_input)
